@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="nomination-container">
+
+    <div class="nomination-card">
+
+        <h1>Nominate a Candidate</h1>
+
+        <p>
+            Submit a deserving individual for recognition.
+        </p>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+            <div class="form-group">
+
+                <label>
+                    {{ field.label }}
+                </label>
+
+                {{ field }}
+
+                {% if field.errors %}
+                    <small class="error">
+                        {{ field.errors }}
+                    </small>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+            <button type="submit"
+                    class="btn">
+
+                Submit Nomination
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

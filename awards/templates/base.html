@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ubuntu Celebration Awards</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        <a href="/">
+            <img src="{% static 'images/logo.jpeg' %}" alt="Ubuntu Awards">
+
+            <div class="brand-text">
+                <h3>Ubuntu Awards</h3>
+                <small>I AM BECAUSE WE ARE</small>
+            </div>
+        </a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        ☰
+    </div>
+
+<ul class="nav-links" id="nav-links">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'categories' %}">Categories</a></li>
+    <li><a href="{% url 'nominees' %}">Nominees</a></li>
+    <li><a href="{% url 'categories' %}">Vote Now</a></li>
+    <li><a href="{% url 'results' %}">Results</a></li>
+    <li><a href="{% url 'contact' %}">Contact</a></li>
+    <li><a href="{% url 'nominate' %}">Nominate</a></li>
+    {% if user.is_staff %}
+<li>
+    <a href="{% url 'dashboard' %}">
+        Dashboard
+    </a>
+</li>
+{% endif %}
+</ul>
+
+</nav>
+
+{% block content %}
+{% endblock %}
+{% include 'partials/footer.html' %}
+
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src="{% static 'js/countdown.js' %}"></script>
+</body>
+
+</html>

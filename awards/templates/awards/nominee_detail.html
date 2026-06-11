@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="nominee-profile">
+
+    {% if nominee.photo %}
+        <img src="{{ nominee.photo.url }}"
+             alt="{{ nominee.full_name }}"
+             class="profile-photo">
+    {% endif %}
+
+    <h1>{{ nominee.full_name }}</h1>
+
+    <h3>{{ nominee.organization }}</h3>
+
+    <p>
+        <strong>Category:</strong>
+        {{ nominee.category.name }}
+    </p>
+
+    <p>
+        <strong>Total Votes:</strong>
+        {{ nominee.votes }}
+    </p>
+
+    <div class="bio">
+        <h2>Biography</h2>
+        <p>{{ nominee.bio }}</p>
+    </div>
+
+    <a href="{% url 'vote_nominee' nominee.id %}"
+       class="btn">
+       Vote Now
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="results-page">
+
+    <h1>Live Results</h1>
+
+    {% for category in categories %}
+
+    <div class="result-card">
+
+        <h2>{{ category.name }}</h2>
+
+        <table>
+
+            <tr>
+                <th>Nominee</th>
+                <th>Votes</th>
+            </tr>
+
+            {% for nominee in category.sorted_nominees %}
+                  {% if forloop.first %}
+                      🥇
+                  {% endif %}
+
+            <tr>
+
+                <td>
+                    {{ nominee.full_name }}
+                </td>
+
+                <td>
+                    {{ nominee.votes }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

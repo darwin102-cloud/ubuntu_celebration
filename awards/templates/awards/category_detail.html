@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="categories-page">
+
+    <h1>{{ category.name }}</h1>
+
+    <p>{{ category.description }}</p>
+
+    <div class="nominee-grid">
+
+        {% for nominee in nominees %}
+
+        <div class="nominee-card">
+
+            {% if nominee.photo %}
+                <img src="{{ nominee.photo.url }}" alt="{{ nominee.full_name }}">
+            {% endif %}
+
+            <h3>
+                <a href="{% url 'nominee_detail' nominee.id %}">
+                    {{ nominee.full_name }}
+                </a>
+            </h3>
+
+            <p>{{ nominee.organization }}</p>
+
+            <p>{{ nominee.bio|truncatewords:20 }}</p>
+
+            <a href="{% url 'vote_nominee' nominee.id %}" class="btn">
+                Vote Now
+            </a>
+
+        </div>
+
+        {% empty %}
+
+        <p>No nominees available for this category.</p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

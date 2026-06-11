@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="categories-page">
+
+    <h1>Award Categories</h1>
+
+    {% for section in sections %}
+
+        <div class="section-card">
+
+            <h2>{{ section.name }}</h2>
+
+            <ul>
+
+                {% for category in section.categories.all %}
+
+                    <li>
+                        <a href="{% url 'category_detail' category.id %}">
+                            {{ category.name }}
+                        </a>
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

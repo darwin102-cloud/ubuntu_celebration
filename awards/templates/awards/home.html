@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+<div class="hero">
+    <!-- <img src="{% static 'images/logo.jpeg' %}" alt="Ubuntu Awards Logo" class="hero-logo"> -->
+
+    <h1>{{ event.title }}</h1>
+
+<p>{{ event.motto }}</p>
+
+<p>{{ event.tagline }}</p>
+
+<p>
+📅 {{ event.event_date }}
+</p>
+
+<p>
+📍 {{ event.venue }}
+</p>
+
+{% if event.voting_open %}
+    <a href="{% url 'categories' %}" class="btn">
+        View Categories
+    </a>
+{% else %}
+    <button disabled>
+        Voting Closed
+    </button>
+{% endif %}
+</div>
+
+<section class="stats-section">
+
+    <div class="stat-card">
+        <h2>{{ total_categories }}</h2>
+        <p>Categories</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ total_nominees }}</h2>
+        <p>Nominees</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>{{ total_votes }}</h2>
+        <p>Votes Cast</p>
+    </div>
+
+</section>
+
+<section class="leaderboard">
+
+    <h2>🏆 Current Leaders</h2>
+
+    <div class="leaderboard-list">
+
+        {% for nominee in leaders %}
+
+        <div class="leader-item">
+            {% if forloop.counter == 1 %}
+                🥇
+            {% elif forloop.counter == 2 %}
+                🥈
+            {% elif forloop.counter == 3 %}
+                🥉
+            {% else %}
+                #{{ forloop.counter }}
+            {% endif %}
+
+            <span class="name">
+                {{ nominee.full_name }}
+            </span>
+
+            <span class="votes">
+                {{ nominee.votes }} Votes
+            </span>
+
+        </div>
+
+        {% empty %}
+
+        <p>No votes recorded yet.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+<div id="countdown"
+     data-event-date="{{ event.event_date|date:'Y-m-d' }}">
+</div>
+
+<div class="countdown-container">
+    <div class="count-box">
+        <span id="days">0</span>
+        <small>Days</small>
+    </div>
+
+    <div class="count-box">
+        <span id="hours">0</span>
+        <small>Hours</small>
+    </div>
+
+    <div class="count-box">
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+    </div>
+
+    <div class="count-box">
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+    </div>
+</div>
+{% endblock %}

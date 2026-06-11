@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="search-section">
+
+    <h1>Nominees</h1>
+
+    <form method="GET">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search nominee..."
+            value="{{ query|default:'' }}"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+<div class="nominee-grid">
+
+    {% for nominee in nominees %}
+
+    <div class="nominee-card">
+
+        {% if nominee.photo %}
+            <img src="{{ nominee.photo.url }}"
+                 alt="{{ nominee.full_name }}">
+        {% endif %}
+
+        <h3>{{ nominee.full_name }}</h3>
+
+        <p>{{ nominee.organization }}</p>
+
+        <p>
+            Votes: {{ nominee.votes }}
+        </p>
+
+        <a href="{% url 'nominee_detail' nominee.id %}"
+           class="btn">
+
+           View Profile
+
+        </a>
+
+    </div>
+
+    {% empty %}
+
+    <p>No nominees found.</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
