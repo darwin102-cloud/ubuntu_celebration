@@ -831,3 +831,131 @@ input[type="file"]{
     }
 
 }
+
+/* MOBILE NAVIGATION FIX */
+
+.hamburger{
+    display:none;
+}
+
+
+@media(max-width:768px){
+
+    .navbar{
+        position:relative;
+        padding:10px 15px;
+    }
+
+
+    .hamburger{
+
+        display:block;
+        color:#d4af37;
+        font-size:30px;
+        cursor:pointer;
+
+    }
+
+
+    .nav-links{
+
+        position:absolute;
+
+        top:70px;
+        left:0;
+
+        width:100%;
+
+        background:#111;
+
+        display:none;
+
+        flex-direction:column;
+
+        z-index:1000;
+
+    }
+
+
+    .nav-links li{
+
+        padding:15px;
+
+        border-bottom:1px solid #d4af37;
+
+    }
+
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+
+
+    /* HERO */
+
+    .hero h1{
+
+        font-size:32px;
+
+        line-height:1.2;
+
+    }
+
+
+    .hero{
+
+        padding:30px 15px;
+
+    }
+
+
+
+    /* STATS */
+
+    .stats-section{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:20px;
+
+    }
+
+
+    .stat-card{
+
+        width:100%;
+
+    }
+
+
+
+    /* LEADERS */
+
+    .leader-card{
+
+        width:90%;
+
+        margin:auto;
+
+    }
+
+
+
+    /* COUNTDOWN */
+
+    .countdown-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+        padding:20px;
+
+    }
+
+}
