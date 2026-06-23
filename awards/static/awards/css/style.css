@@ -635,3 +635,199 @@ input[type="file"]{
 .leaderboard-table th{
     background:#D4AF37;
 }
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+
+    /* NAVBAR */
+
+    .navbar{
+        padding: 10px 15px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+
+    .nav-logo img{
+        width:45px;
+        height:45px;
+    }
+
+
+    .brand-text h3{
+        font-size:16px;
+        margin:0;
+    }
+
+
+    .brand-text small{
+        font-size:10px;
+    }
+
+
+    .hamburger{
+        display:block;
+        font-size:30px;
+        cursor:pointer;
+    }
+
+
+    .nav-links{
+
+        position:absolute;
+        top:70px;
+        left:0;
+
+        width:100%;
+
+        display:none;
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:20px 0;
+
+    }
+
+
+    .nav-links li{
+
+        margin:15px 0;
+
+    }
+
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+
+
+    /* HERO SECTION */
+
+    .hero{
+
+        padding:20px 15px;
+
+        text-align:center;
+
+    }
+
+
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+
+
+    /* BUTTON */
+
+    .btn{
+
+        width:90%;
+        display:block;
+        margin:20px auto;
+
+    }
+
+
+
+    /* STATS */
+
+    .stats-section{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:15px;
+
+        padding:15px;
+
+    }
+
+
+    .stat-card{
+
+        width:100%;
+
+    }
+
+
+
+    /* COUNTDOWN */
+
+    .countdown-container{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:10px;
+
+        padding:15px;
+
+    }
+
+
+    .count-box{
+
+        width:100%;
+
+    }
+
+
+
+    /* FORMS */
+
+    .vote-card,
+    .nomination-card{
+
+        width:90%;
+
+        margin:auto;
+
+        padding:20px;
+
+    }
+
+
+    input,
+    textarea,
+    select{
+
+        width:100%;
+
+    }
+
+
+
+    /* FOOTER */
+
+    .footer{
+
+        text-align:center;
+
+        padding:20px;
+
+    }
+
+}
