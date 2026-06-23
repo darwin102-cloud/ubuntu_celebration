@@ -5,8 +5,7 @@
 <head>
     <title>Ubuntu Celebration Awards</title>
 
-    <link rel="stylesheet"
-          href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'awards/css/style.css' %}">
 </head>
 
 <body>
@@ -15,7 +14,7 @@
 
     <div class="nav-logo">
         <a href="/">
-            <img src="{% static 'images/logo.jpeg' %}" alt="Ubuntu Awards">
+            <img src="{% static 'awards/images/logo.jpeg' %}" alt="Ubuntu Awards">
 
             <div class="brand-text">
                 <h3>Ubuntu Awards</h3>
@@ -52,8 +51,8 @@
 {% endblock %}
 {% include 'partials/footer.html' %}
 
-<script src="{% static 'js/navbar.js' %}"></script>
-<script src="{% static 'js/countdown.js' %}"></script>
+<script src="{% static 'awards/js/navbar.js' %}"></script>
+<script src="{% static 'awards/js/countdown.js' %}"></script>
 </body>
 
 </html>
